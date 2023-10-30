@@ -1,49 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Lottery Number Table</title>
-    <link rel="stylesheet" type="text/css" href="LottoRando.css">
+    <meta charset="UTF-8">
+    <title>LottoRando: Powerball Generator</title>
+    <link rel="stylesheet" href="LottoRando.css">
 </head>
 <body>
-    <script>
-        // Your JavaScript code goes here
-        function generateRandomLotteryNumbers() {
-  const lotteryNumbers = [];
-
-  for (let i = 0; i < 5; i++) {
-    let randomNum;
-    do {
-      randomNum = Math.floor(Math.random() * 69) + 1;
-    } while (lotteryNumbers.includes(randomNum));
-    lotteryNumbers.push(randomNum);
-  }
-
-  const powerballNumber = Math.floor(Math.random() * 26) + 1;
-  lotteryNumbers.sort((a, b) => a - b);
-
-  return { mainNumbers: lotteryNumbers, powerball: powerballNumber };
-}
-
-function createLotteryTable(numbers) {
-  const table = document.createElement('table');
-  const headerRow = table.insertRow(0);
-  headerRow.insertCell(0).textContent = 'Main Numbers';
-  headerRow.insertCell(1).textContent = 'Powerball Number';
-
-  const numbersRow = table.insertRow(1);
-  numbersRow.insertCell(0).textContent = numbers.mainNumbers.join(', ');
-  numbersRow.insertCell(1).textContent = numbers.powerball;
-
-  document.body.appendChild(table);
-}
-
-const randomLotteryNumbers = generateRandomLotteryNumbers();
-createLotteryTable(randomLotteryNumbers);
-    </script>
-    
-    <footer>
-        <p>&copy; 2023 Homer.I.AM</p>
-        <link href"https://www.instagram.com/homer.I.am/">
-    </footer>
+  <div class="title-box">
+    <h1>LottoRando: Powerball Number Generator</h1>
+  </div>
+  <!-- Add this button -->
+  <button id="generate">Generate Numbers</button>
+  <!-- End of added button -->
+  <div id="result"></div>
+  <script src="LottoRando.js"></script>
 </body>
 </html>

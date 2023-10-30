@@ -1,32 +1,44 @@
-/* Add some basic styling for the table */
-table {
-    width: 0;
-    margin: 0 auto;
-    border-collapse: collapse;
-}
-
-th, td {
-    border: 2px solid #e60808;
-    padding: 8px;
+body {
+    font-family: Arial, sans-serif;
     text-align: center;
+    margin-top: 50px;
+    color: rgb(0, 0, 0);
 }
 
-th {
-    background-color: #1295ed;
+button {
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
 }
 
-/* Style the footer */
-footer {
-    text-align: center;
-    background-color: #333;
-    color: #fff;
+#result {
+    margin-top: 20px;
+    font-size: 24px;
+}
+/* Styling the circles for main and powerball numbers */
+.circle {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    line-height: 50px;
+    margin-right: 5px;
+}
+
+.main-number {
+    background-color: red;
+    color: white;
+}
+
+.powerball-number {
+    background-color: white;
+    color: red;
+    border: 2px solid red;
+}
+
+.title-box {
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
-}
-
-footer p {
-    margin: 0;
-}
-
-link{
-    color: blue
+    margin-bottom: 20px;
+    border-radius: 10px;
 }

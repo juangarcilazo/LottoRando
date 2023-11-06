@@ -14,7 +14,10 @@ button {
 #result {
     margin-top: 20px;
     font-size: 24px;
+    float: left; /* Keep generated numbers on the left */
+    width: 50%;  /* Use 50% of the width for generated numbers */
 }
+
 /* Styling the circles for main and powerball numbers */
 .circle {
     border-radius: 50%;
@@ -41,4 +44,30 @@ button {
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 10px;
+}
+
+/* Styles for previous sets of numbers */
+#previousNumbersColumn {
+    float: right; /* Keep Previous Numbers on the right */
+    width: 50%;   /* Use 50% of the width for Previous Numbers */
+    overflow-y: auto; /* Add scrollbar if content overflows */
+    text-align: left; /* Align text to the left */
+}
+
+.previous-set {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.previous-set .circle {
+    margin: 2px;
+}
+
+/* Styles for the Tally of Numbers */
+#tallyContainer {
+    float: left; /* Keep Tally of Numbers on the left */
+    width: 50%;   /* Use 50% of the width for Tally of Numbers */
+    text-align: left; /* Align text to the left */
 }

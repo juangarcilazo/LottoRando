@@ -3,12 +3,25 @@ document.addEventListener('DOMContentLoaded', function() {
   const resultDiv = document.getElementById('result');
   const previousNumbersColumn = document.getElementById('previousNumbersColumn');
   const numberTallyTable = document.getElementById('numberTally'); // Table for tally
+  const counterElement = document.getElementById('counter'); // Counter element
+
+  let generateCount = 0; // Initialize the counter
 
   // Create an object to store number frequencies
   const numberCounts = {};
 
+  // Create an object to store the tallied numbers along with their counts
+  const tallyCounts = {};
+
+  let numbers; // Declare 'numbers' variable here
+
   generateButton.addEventListener('click', function() {
-    const numbers = generatePowerballNumbers();
+    // Increment the counter and update the display
+    generateCount++;
+    counterElement.textContent = 'Number of Generates: ' + generateCount;
+
+    numbers = generatePowerballNumbers(); // Assign 'numbers' here
+
     const sortedMainNumbers = numbers.main.sort((a, b) => a - b);
     
     let mainNumbersHTML = '';
@@ -21,6 +34,13 @@ document.addEventListener('DOMContentLoaded', function() {
         numberCounts[mainNumber]++;
       } else {
         numberCounts[mainNumber] = 1;
+      }
+
+      // Update the tally count
+      if (tallyCounts[mainNumber]) {
+        tallyCounts[mainNumber]++;
+      } else {
+        tallyCounts[mainNumber] = 1;
       }
     }
     
@@ -35,72 +55,57 @@ document.addEventListener('DOMContentLoaded', function() {
     
     previousNumbersColumn.innerHTML = previousNumbersHTML + previousNumbersColumn.innerHTML;
 
-    // Update the number tally table
-    updateNumberTallyTable(numberCounts);
+    // Update the number tally table (excluding Powerball number)
+    updateNumberTallyTable(tallyCounts);
   });
 
-  // Function to update the number tally table
+  // Function to update the number tally table (excluding Powerball)
   function updateNumberTallyTable(counts) {
     const tableBody = numberTallyTable.querySelector('tbody');
     tableBody.innerHTML = ''; // Clear the table body
 
-    for (let i = 1; i <= 69; i++) {
+    // Convert the tallyCounts object to an array of objects for sorting
+    const tallyArray = Object.keys(counts).map(key => ({ number: parseInt(key), count: counts[key] }));
+
+    // Sort the tallyArray in descending order of counts
+    tallyArray.sort((a, b) => b.count - a.count);
+
+    for (let i = 0; i < tallyArray.length; i++) {
       const row = document.createElement('tr');
       const numberCell = document.createElement('td');
-      numberCell.textContent = i;
+      numberCell.textContent = tallyArray[i].number;
       const tallyCell = document.createElement('td');
-      tallyCell.textContent = counts[i] || 0;
+      tallyCell.textContent = tallyArray[i].count;
       row.appendChild(numberCell);
       row.appendChild(tallyCell);
       tableBody.appendChild(row);
     }
   }
 
+  // Function to generate Powerball numbers
+  function generatePowerballNumbers() {
+    const mainNumbers = generateUniqueNumbers(5, 1, 69);
+    const powerballNumber = generateRandomNumber(1, 26);
 
-function generatePowerballNumbers() {
-  const mainNumbers = generateUniqueNumbers(5, 1, 69);
-  const powerballNumber = generateRandomNumber(1, 26);
-
-  return {
+    return {
       main: mainNumbers,
       powerball: powerballNumber
-  };
-}
-
-function generateUniqueNumbers(count, min, max) {
-  const numbers = new Set();
-
-  while (numbers.size < count) {
-      numbers.add(generateRandomNumber(min, max));
+    };
   }
 
-  return Array.from(numbers);
-}
+  // Function to generate unique random numbers
+  function generateUniqueNumbers(count, min, max) {
+    const numbers = new Set();
 
-function generateRandomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-});
-
-// Fetch data from API
-function fetchApiData() {
-  const url = 'YOUR_API_ENDPOINT_HERE';
-  fetch(url, {
-    method: 'GET',
-    headers: {
-      'API-Key': 'YOUR_API_KEY_HERE'  // If required
+    while (numbers.size < count) {
+      numbers.add(generateRandomNumber(min, max));
     }
-  })
-  .then(response => response.json())  // Parse the JSON from the response
-  .then(data => {
-    console.log(data);  // Log the data to the console
-  })
-  .catch(error => {
-    console.error('Error fetching data:', error);  // Log any errors
-  });
-}
 
-// Call this function when the DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
-  fetchApiData();
+    return Array.from(numbers);
+  }
+
+  // Function to generate a random number within a range
+  function generateRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 });

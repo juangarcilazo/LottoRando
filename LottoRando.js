@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', function() {
   let numbers; // Declare 'numbers' variable here
 
   generateButton.addEventListener('click', function() {
-    // Increment the counter and update the display
-    generateCount++;
-    counterElement.textContent = 'Number of Generates: ' + generateCount;
-
+    for (let i = 0; i < 69; i++) {
+      // Increment the counter and update the display
+      generateCount++;
+      counterElement.textContent = 'Number of Generates: ' + generateCount;
     numbers = generatePowerballNumbers(); // Assign 'numbers' here
 
     const sortedMainNumbers = numbers.main.sort((a, b) => a - b);
@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Update the number tally table (excluding Powerball number)
     updateNumberTallyTable(tallyCounts);
+  }
   });
 
   // Function to update the number tally table (excluding Powerball)

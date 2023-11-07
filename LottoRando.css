@@ -51,7 +51,7 @@ button {
 
 /* Styles for the title box */
 .title-box {
-    background-color: rgba(7, 241, 42, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 10px;
@@ -68,7 +68,7 @@ button {
 /* Styles for the previous numbers */
 #previousNumbersColumn {
     text-align: center;
-    color:aqua
+    color:rgb(255, 0, 0)
 }
 
 .previous-set {
@@ -139,3 +139,4 @@ button {
     background-color: rgb(19, 241, 11); /* Change the background color for main numbers */
     color: white; /* Change the text color for main numbers */
 }
+

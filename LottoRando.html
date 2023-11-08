@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>LottoRando: Powerball Generator</title>
+    <title> Force BE With You: Winning Powerball Number Generator</title>
     <link rel="stylesheet" href="LottoRando.css">
 </head>
 <body>
     <div class="overlay"></div> <!-- Add this div for the overlay -->
 
     <div class="title-box">
-        <h1>LottoRando: Powerball Number Generator</h1>
+        <h1>LottoRando: Your Aligned Numbers</h1>
     </div>
 
     <!-- Add this button -->
@@ -28,6 +28,23 @@
             </tr>
         </table>
     </div>
+
+    <!-- Add a new container for Powerball numbers table -->
+    <!-- Powerball Tally Table -->
+<div id="powerballTallyContainer" style="float: left;">
+  <!--<h2>Powerball Tally</h2> -->
+  <table id="powerballTallyTable">
+    <thead>
+      <tr>
+        <th>Powerball Number</th>
+        <th>Tally</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Powerball tally rows will be inserted here -->
+    </tbody>
+  </table>
+</div>
 
     <!-- Center the result div -->
     <div id="result" class="centered-result"></div>

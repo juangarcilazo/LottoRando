@@ -6,38 +6,40 @@
     <link rel="stylesheet" href="LottoRando.css">
 </head>
 <body>
-  <div class="title-box">
-    <h1>LottoRando: Powerball Number Generator</h1>
-  </div>
+    <div class="overlay"></div> <!-- Add this div for the overlay -->
 
-  <!-- Add this button -->
-  <button id="generate" class="fixed-top">Generate Numbers</button>
-  
-  <!-- End of added button -->
-  <div id="counter">Number of Generates: 0</div>
-  
-  <!-- Move the Tally of Numbers section to the left -->
-  <div id="tallyContainer" style="float: left;">
-    <h2>Tally of Numbers</h2>
-    <table id="numberTally">
-      <tr>
-        <th>Number</th>
-        <th>Tally</th>
-      </tr>
-    </table>
-  </div>
-  
-  <!-- Center the result div -->
-  <div id="result" class="centered-result"></div>
-  
-<!-- previous results div container -->
-<div id="previousResultsContainer">
-  <div id="previousNumbersColumn">
-      <h2>Previous Numbers</h2>
-      <div id="previousNumbers"></div>
-  </div>
-</div>
-  
-  <script src="LottoRando.js"></script>
+    <div class="title-box">
+        <h1>LottoRando: Powerball Number Generator</h1>
+    </div>
+
+    <!-- Add this button -->
+    <button id="generate" class="fixed-top">Generate Numbers</button>
+
+    <!-- End of added button -->
+    <div id="counter">Number of Generates: 0</div>
+
+    <!-- Move the Tally of Numbers section to the left -->
+    <div id="tallyContainer" style="float: left;">
+        <h2>Tally of Numbers</h2>
+        <table id="numberTally">
+            <tr>
+                <th>Number</th>
+                <th>Tally</th>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Center the result div -->
+    <div id="result" class="centered-result"></div>
+
+    <!-- previous results div container -->
+    <div id="previousResultsContainer">
+        <div id="previousNumbersColumn">
+            <h2>Previous Numbers</h2>
+            <div id="previousNumbers"></div>
+        </div>
+    </div>
+
+    <script src="LottoRando.js"></script>
 </body>
 </html>
